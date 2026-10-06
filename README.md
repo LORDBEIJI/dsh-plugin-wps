@@ -36,6 +36,30 @@ link:E:\dsh-plugin\wps-create
 
 安装后 profile 的 bundle 列表会出现 `dsh-wps`。工具在当前宿主进程中热加载，无需重启。
 
+## 配套 Skill：定制版 ppt-master
+
+插件负责「操作 WPS」，但要**做出高质量的 PPTX**，还需要一个会做演示文稿的技能。
+本仓库附带一份定制版 [ppt-master](https://github.com/hugohe3/ppt-master) 的安装器：
+
+```bash
+node skill/ppt-master/install.mjs
+```
+
+它会从上游拉取完整技能包、覆盖两处本地定制，然后运行官方完整性门禁验证结果。
+
+| 定制 | 作用 |
+|---|---|
+| **Pre-Flight Intake** | 开工前先问清楚：浏览器确认还是对话确认？完整流程还是快速生成？ |
+| **Cost Discipline** | 记录真实成本形状（动手前必读的契约文档约 150 KB，属固定成本）；明确 Quick 省流程不省执行；禁止因求快而砍掉配图等内容需求 |
+
+**需要知道的三件事**：
+
+- ppt-master 是**第三方作品**（作者 **Hugo He**，**MIT** 许可）。本仓库只分发**定制差异**，
+  官方代码始终在安装时从上游获取，署名文件保持完整。
+- 两者**没有代码依赖**。推荐组合：用 ppt-master 生成 PPTX，再用本插件的 `wps_open`
+  打开给你看、`wps_convert_pdf` 导出 PDF 校验 —— 通过文件路径衔接。
+- 详细说明与故障处理见 [`skill/ppt-master/README.md`](skill/ppt-master/README.md)。
+
 ## 安全设计
 
 这个插件能改用户磁盘上的文件，所以安全默认是刻意的：
