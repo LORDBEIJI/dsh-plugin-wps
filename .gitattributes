@@ -1,0 +1,9 @@
+# Keep one line-ending convention across platforms; the worker script is
+# verified working with LF under Windows PowerShell 5.1.
+* text=auto eol=lf
+
+# Office artifacts and PDFs are opaque binaries.
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.pdf binary

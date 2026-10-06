@@ -1,0 +1,5 @@
+node_modules/
+_probe/
+*.tsbuildinfo
+# Local rollback copies of the DSH profile config; never part of the plugin.
+_install-backup/

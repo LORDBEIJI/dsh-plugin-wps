@@ -1,0 +1,15 @@
+# pnpm 11 keeps configuration in this file rather than .npmrc.
+#
+# The Host is a global install: it already resolves the plugin's declared peer
+# itself, so materializing @deepseek-ai/dsh here (and the hundreds of packages
+# behind it, several requiring native build steps) buys nothing. The build
+# scripts below are explicitly disallowed for the same reason — they belong to
+# packages this plugin never loads at runtime.
+autoInstallPeers: false
+
+allowBuilds:
+  '@deepseek-ai/dsh-subprocess-local': false
+  '@google/genai': false
+  koffi: false
+  node-pty: false
+  protobufjs: false

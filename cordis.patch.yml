@@ -1,0 +1,9 @@
+# dsh-wps bundle patch: inserts the host-side WPS Office plugin row.
+# Applied as a profile bundle layer (the `dsh.bundle.patch` manifest field).
+#
+# The row is a bare plugin by package name; its node half (exports ".") runs in
+# the dsh host process and registers the wps_* agent tools. There is no browser
+# half: everything the agent needs is host-side COM automation.
+- insert:
+    - id: wps
+      name: dsh-wps
